@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +28,7 @@ import androidx.compose.material3.HorizontalDivider
 
 class MainActivity : ComponentActivity() {
 
-    private val postModel = PostViewModel()
+    private val postViewModel: PostViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Tutorial_1Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    PostScreen(postViewModel = postModel,
+                    PostScreen(postViewModel = postViewModel,
                         modifier = Modifier.padding(innerPadding))
                 }
             }
